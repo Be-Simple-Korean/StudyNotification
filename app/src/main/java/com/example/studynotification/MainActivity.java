@@ -63,11 +63,11 @@ public class MainActivity extends AppCompatActivity {
                     .setContentTitle("확장형 제목")
                     .setContentText("확장형 내용")
                     .setLargeIcon(icon)
-                    .setStyle(new NotificationCompat.BigTextStyle().bigText("asdasdasdasdasdaaaaasasadsdsdsdsdsdsdsdsdsdsdsdsdsdsd")); //확장시 텍스트 표시
-//                    .setStyle(new NotificationCompat.BigPictureStyle() //확장시 큰 이미지 표시
-//                            .bigPicture(icon)
-//                            .bigLargeIcon(null)
-//                    );
+//                    .setStyle(new NotificationCompat.BigTextStyle().bigText("asdasdasdasdasdaaaaasasadsdsdsdsdsdsdsdsdsdsdsdsdsdsd")); //확장시 텍스트 표시
+                    .setStyle(new NotificationCompat.BigPictureStyle() //확장시 큰 이미지 표시
+                            .bigPicture(icon)
+                            .bigLargeIcon(null)
+                    );
 
             notificationManager.notify(2, builder.build());
         }); //확장형 알림
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "채널이름";
             String description = "채널자막?";
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            int importance = NotificationManager.IMPORTANCE_DEFAULT; //HIGH= HEADUP
             NotificationChannel channel = new NotificationChannel("cid", name, importance);
             channel.setDescription(description);
             // Register the channel with the system; you can't change the importance
